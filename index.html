@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>javascript revision</title>
+</head>
+
+<body>
+
+    <!-- <input type="text" id="inputAmount"> <button id="btn">+</button> -->
+    <input type="text" id="inputAmount" placeholder="Enter spend Amount">
+    <input type="text" id="inputDesc" placeholder="Spend money on ">
+    <button id="btn">+</button>
+    <h2 id="AmountScreen"></h2>
+
+    <script>
+        //   let counter = 0 ;
+        // //   console.log(counter)
+        // //   counter = counter + 1 ;
+        //  const element = document.querySelector("#btn");
+        // //  console.log(element)
+        // element.addEventListener("click",increment)
+
+        // function  increment () {
+
+        //     counter = counter + 1 ;
+        //     console.log(counter)
+        // }
+        //  increment ();
+        // //  console.log(counter)
+
+
+
+
+        let Totalexpnse = 0;
+
+        const Allexpense = [];
+
+        let InputDesc = document.querySelector("#inputDesc")
+
+        const inputElement = document.querySelector("#inputAmount")
+
+        let heading = document.querySelector("#AmountScreen")    //for showing total
+
+        // console.log(heading)
+
+        //heading.textContent=Totalexpnse;      //replace with heading to totalexpanse
+
+        function Addexpense() {
+
+            const ExpenseItem = {}
+            // const inputElement = document.querySelector("#inputAmount")
+            const textAmount = inputElement.value
+            // console.log(inputElement)
+            //console.log({ textAmount })
+
+            const textDesc = InputDesc.value
+            //console.log({ textDesc, textAmount })
+
+    
+            const expense = parseInt(textAmount, 10)
+            //console.log({ expense })
+
+            ExpenseItem.description = textDesc;        //accessing object
+            ExpenseItem.Amount = expense;
+            //console.table(ExpenseItem)
+
+            Allexpense.push=(ExpenseItem);
+            //console.log(Allexpense);
+
+            Totalexpnse = Totalexpnse + expense;
+            //console.log({ Totalexpnse })
+            const finalOutput=`The expense of This month is :${Totalexpnse}`
+
+            heading.textContent = finalOutput;
+
+        }
+        Addexpense()
+
+        const element = document.querySelector("#btn")
+        element.addEventListener("click", Addexpense)
+
+
+    </script>
+</body>
+
+</html>
